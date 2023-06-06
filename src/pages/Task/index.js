@@ -33,6 +33,7 @@ export default function Task({ navigation }){
             showsVerticalScrollIndicator={false}
             data={task}
             renderItem={( item )=>{
+              return(
               <View style={styles.Tasks}>
                   <TouchableOpacity
                    style={styles.deleteTasks}
@@ -40,10 +41,29 @@ export default function Task({ navigation }){
                     deleteTask(item.id)
                    }}
                   >
+                  <FontAwesome
+                    name="star"
+                    size={23} 
+                    color="#f92e6a"
+                  >
+
+                  </FontAwesome>
 
                   <Text style={styles.iconButton}>+</Text>
                   </TouchableOpacity>
+                  <Text
+                    style={styles.descriptionTask}
+                    onPress={()=>{
+                      navigation.navigate("Details",{
+                        id: item.id,
+                        description: item.description
+                      })
+                    }}
+                  >
+                    {item.description}
+                  </Text>
               </View>  
+              )
             } }
           />
           <TouchableOpacity
