@@ -26,9 +26,23 @@ export default function Task({ navigation }){
 
     return(
         <View style={styles.container}>
-          <FlatList/>
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            data={task}
+            renderItem={( item )=>{
+              <View style={styles.contextAllTasks}>
+                  <TouchableOpacity
+                   style={styles.buttonNewText}
+                   onPress={() => navigation.navigate("New Task")}
+                  >
+                  <Text style={styles.iconButton}>+</Text>
+                  </TouchableOpacity>
+              </View>  
+            } }
+          />
           <TouchableOpacity
             style={styles.buttonNewText}
+            onPress={() => navigation.navigate("New Task")}
           >
             <Text style={styles.iconButton}>+</Text>
           </TouchableOpacity>
