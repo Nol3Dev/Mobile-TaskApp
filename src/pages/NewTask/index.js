@@ -4,7 +4,7 @@ import { View, Text, TextInput, TouchableOpacity } from "react-native"
 import database from "../../config/firebaseconfig.js"
 import styles from "./style.js"
 
-export default function NewTask(){
+export default function NewTask({ navigation }){
   const [description,setDescription] = useState(null)
 
   function addTask(){

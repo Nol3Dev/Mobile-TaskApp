@@ -25,6 +25,23 @@ const styles = StyleSheet.create({
         marginLeft: 'auto',
         marginRight: 'auto'
     },
+
+    buttonNewTask: {
+        width: 60,
+        height: 60,
+        botton: 30,
+        left: 20,
+        backgroundColor: "#f92e6a",
+        borderRadius: 50,
+        justifyContent: "center",
+        alignItems: "center"
+    },
+
+    iconButton: {
+        color: "#fff",
+        fontSize: 16,
+        fontWeight: "bold"
+     }
 });
 
 export default styles
