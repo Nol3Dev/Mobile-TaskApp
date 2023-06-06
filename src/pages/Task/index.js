@@ -13,6 +13,9 @@ import styles from "./style"
 export default function Task({ navigation }){
     const [task, setTask] = useState([])
 
+    function deleteTask(id){
+      database.collection("Tasks").doc(id).delete()
+    }
 
     useEffect(()=>{
         database.collection("TaskApp").onSnapshot((query)=>{
@@ -30,11 +33,14 @@ export default function Task({ navigation }){
             showsVerticalScrollIndicator={false}
             data={task}
             renderItem={( item )=>{
-              <View style={styles.contextAllTasks}>
+              <View style={styles.Tasks}>
                   <TouchableOpacity
-                   style={styles.buttonNewText}
-                   onPress={() => navigation.navigate("New Task")}
+                   style={styles.deleteTasks}
+                   onPress={() => {
+                    deleteTask(item.id)
+                   }}
                   >
+
                   <Text style={styles.iconButton}>+</Text>
                   </TouchableOpacity>
               </View>  
